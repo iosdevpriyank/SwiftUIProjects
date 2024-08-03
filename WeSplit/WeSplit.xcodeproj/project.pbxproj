@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5836C8152C5E3128000161BC /* WeSplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836C8142C5E3128000161BC /* WeSplitApp.swift */; };
-		5836C8172C5E3128000161BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836C8162C5E3128000161BC /* ContentView.swift */; };
 		5836C8192C5E3129000161BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5836C8182C5E3129000161BC /* Assets.xcassets */; };
 		5836C81C2C5E3129000161BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5836C81B2C5E3129000161BC /* Preview Assets.xcassets */; };
+		5836C8222C5E44AE000161BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836C8162C5E3128000161BC /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5836C8172C5E3128000161BC /* ContentView.swift in Sources */,
+				5836C8222C5E44AE000161BC /* ContentView.swift in Sources */,
 				5836C8152C5E3128000161BC /* WeSplitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
