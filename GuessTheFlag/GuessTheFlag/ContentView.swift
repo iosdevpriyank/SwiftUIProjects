@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var arrCountriesName = ["Estonia", "France", "Germany", "India", "Ireland", "Italy", "Monaco", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+    static private let arrCountriesName = ["Estonia", "France", "Germany", "India", "Ireland", "Italy", "Monaco", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
+    @State private var countries = arrCountriesName.shuffled()
     @State private var randomNumber = Int.random(in: 0...2)
     @State private var scoreTitle = ""
     @State private var showingScore = false
@@ -34,7 +35,7 @@ struct ContentView: View {
                             Text("Take the flag of")
                                 .foregroundStyle(.secondary)
                                 .font(.subheadline.weight(.heavy))
-                            Text(arrCountriesName[randomNumber])
+                            Text(countries[randomNumber])
                                 .font(.largeTitle.weight(.semibold))
                         }
                         
@@ -42,7 +43,7 @@ struct ContentView: View {
                             Button {
                                 flagTapped(number)
                             } label: {
-                                Image(arrCountriesName[number])
+                                Image(countries[number])
                                     .clipShape(.capsule)
                                     .shadow(radius: 5)
                             }
@@ -83,7 +84,7 @@ struct ContentView: View {
             totalScore += 1
         } else {
             let needsThe = ["UK", "US", "India"]
-            let theirAnswer = arrCountriesName[number]
+            let theirAnswer = countries[number]
             
             if needsThe.contains(theirAnswer) {
                 scoreTitle = "Wrong! That’s the flag of the \(theirAnswer)"
@@ -98,7 +99,8 @@ struct ContentView: View {
     }
     
     func askQuestion() {
-        arrCountriesName.shuffle()
+        countries.remove(at: randomNumber)
+        countries.shuffle()
         randomNumber = Int.random(in: 0...2)
         currentQuestionNumber += 1
     }
@@ -106,6 +108,7 @@ struct ContentView: View {
     func newGame() {
         currentQuestionNumber = 0
         totalScore = 0
+        countries = Self.arrCountriesName
         askQuestion()
     }
 }
