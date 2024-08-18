@@ -17,6 +17,8 @@ struct ContentView: View {
     @State private var totalScore = 0
     @State private var currentQuestionNumber = 0
     @State private var showingResults = false
+    @State private var selectedFlag = -1
+    
     var totalQuestion = 8
     
     var body: some View {
@@ -47,6 +49,12 @@ struct ContentView: View {
                                     .clipShape(.capsule)
                                     .shadow(radius: 5)
                             }
+                            .rotation3DEffect(.degrees(selectedFlag == number ? 360 : 0), axis: (x: 0.0, y: 1.0, z: 0.0)
+                            )
+                            //.opacity(selectedFlag == -1 || selectedFlag == number ? 1.0 : 0.25)
+                            //.scaleEffect(selectedFlag == -1 || selectedFlag == number ? 1.0 : 0.25)
+                            .saturation(selectedFlag == -1 || selectedFlag == number ? 1 : 0)
+                            .animation(.default, value: selectedFlag)
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -74,6 +82,7 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        selectedFlag = number
         if currentQuestionNumber == totalQuestion {
             showingResults = true
         } else {
@@ -99,6 +108,7 @@ struct ContentView: View {
     }
     
     func askQuestion() {
+        selectedFlag = -1
         countries.remove(at: randomNumber)
         countries.shuffle()
         randomNumber = Int.random(in: 0...2)
