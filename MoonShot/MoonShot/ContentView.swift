@@ -11,7 +11,7 @@ struct ContentView: View {
     let astronuts: [String: Astronaut] = Bundle.main.decode(file: "astronauts.json")
     let missions: [Mission] = Bundle.main.decode(file: "missions.json")
     
-    @State private var isShowingGrid: Bool = false
+    @AppStorage("isShowingGrid") private var isShowingGrid: Bool = false
     
     var body: some View {
         NavigationStack {
