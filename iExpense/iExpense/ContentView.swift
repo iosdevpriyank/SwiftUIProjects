@@ -54,13 +54,12 @@ struct ContentView: View {
               }
             .navigationTitle("iExpense")
             .toolbar {
-                Button("Plus Button", systemImage: "plus") {
-                    isShowingExpense = true
+                NavigationLink {
+                    AddView(expenses: expense)
+                } label: {
+                    Label("Add Expense", systemImage: "plus")
                 }
             }
-            .sheet(isPresented: $isShowingExpense, content: {
-                AddView(expenses: expense)
-            })
         }
     }
     

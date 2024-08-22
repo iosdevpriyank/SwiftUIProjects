@@ -13,9 +13,7 @@ struct ListLayout: View {
     
     var body: some View {
         List(missions) { mission in
-            NavigationLink {
-                MissionDetailView(missions: mission, astronauts: astronuts)
-            } label: {
+            NavigationLink(value: mission) {
                 HStack {
                     Image(mission.image)
                         .resizable()
@@ -29,7 +27,7 @@ struct ListLayout: View {
                         Text(mission.formattedLaunchDate)
                     }
                 }
-            }.transition(.opacity.animation(.linear.delay(1.0)))
+            }.transition(.scale.animation(.easeInOut.delay(1.0)))
         }
         
     }

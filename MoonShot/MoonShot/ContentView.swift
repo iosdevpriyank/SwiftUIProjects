@@ -35,6 +35,9 @@ struct ContentView: View {
                         .foregroundStyle(.white)
                 }
             }
+            .navigationDestination(for: Mission.self) { mission in
+                MissionDetailView(missions: mission, astronauts: astronuts)
+            }
         }
     }
 }

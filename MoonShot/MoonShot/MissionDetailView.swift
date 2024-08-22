@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionDetailView: View {
-    struct CrewMember {
+    struct CrewMember: Hashable {
         let role: String
         let astronaut: Astronaut
     }
@@ -53,6 +53,9 @@ struct MissionDetailView: View {
         .navigationTitle(missions.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .background(.darkBackground)
+        .navigationDestination(for: Astronaut.self) { astronaut in
+            AstronautView(astronut: astronaut)
+        }
     }
     
     init(missions: Mission, astronauts: [String: Astronaut]) {
