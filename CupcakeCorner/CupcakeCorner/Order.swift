@@ -40,13 +40,29 @@ class Order: Codable {
     var addSprinkles = false
     
     // Address field
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
+    var name = "" {
+        didSet {
+            UserDefaults.standard.setValue(name, forKey: "name")
+        }
+    }
+    var streetAddress = "" {
+        didSet {
+            UserDefaults.standard.setValue(streetAddress, forKey: "streetAddress")
+        }
+    }
+    var city = "" {
+        didSet {
+            UserDefaults.standard.setValue(city, forKey: "city")
+        }
+    }
+    var zip = "" {
+        didSet {
+            UserDefaults.standard.setValue(zip, forKey: "zip")
+        }
+    }
     
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+        if name.isEmptyCheck || streetAddress.isEmptyCheck || city.isEmptyCheck || zip.isEmptyCheck {
             return false
         }
         return true
@@ -68,5 +84,12 @@ class Order: Codable {
         }
         
         return cost
+    }
+    
+    init() {
+        name = UserDefaults.standard.string(forKey: "name") ?? ""
+        streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? ""
+        city = UserDefaults.standard.string(forKey: "city") ?? ""
+        zip = UserDefaults.standard.string(forKey: "zip") ?? ""
     }
 }
