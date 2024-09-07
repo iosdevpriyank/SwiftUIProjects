@@ -2,12 +2,6 @@
 
 This repository contains SwiftUI-based practice exercises that aim to explore various components, layouts, and interactions available in SwiftUI. It is designed for learning purposes and includes different examples showcasing the use of SwiftUI for iOS development.
 
-## Project Structure
-
-# SwiftUI Practice Project
-
-This repository contains SwiftUI-based practice exercises that aim to explore various components, layouts, and interactions available in SwiftUI. It is designed for learning purposes and includes different examples showcasing the use of SwiftUI for iOS development.
-
 ## Project Focus
 
 This project covers several key areas of SwiftUI development, providing hands-on practice with:
